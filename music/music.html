@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+    <link href="music.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="../homeimg/logo.jpg" sizes="16x16" type="image/png">
+
+</head>
+
+<body>
+<div class="nav-n">
+    <ul>
+        <li><a href="../index.html">Index</a></li>
+        <li><a href="../Find/Find.html">Find</a></li>
+        <li><a href="../movie/电影.html">Movie</a></li>
+        <li><a href="../music/music.html">Music</a></li>
+        <li><a href="../Calligraphy/Calligraphy.html">Calligraphy</a></li>
+        <li><a href="../painting/painting.html">Painting&&Bangumi</a></li>
+        <li><a href="../food/美食.html">Food</a></li>
+        <li><a href="../anime/anime.html">Anime</a></li>
+        <li><a href="../book/书本.html">Book</a></li>
+        <li style="float:right;" id="login-tx"></li>
+    </ul>
+</div>
+
+
+<div id="box">
+    <div class="music_box" onclick="checked_music(0)">
+        <div class="music_show">
+            <img src="music_img/0.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font0">
+        <p>《七百年后》<br>陈奕迅</p>
+    </div>
+    </div>
+
+    <div class="music_box" onclick="checked_music(1)">
+        <div class="music_show">
+            <img src="music_img/1.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font1">
+            <p>《森林》<br>Mr.</p>
+        </div>
+    </div>
+
+    <div class="music_box"  onclick="checked_music(2)">
+        <div class="music_show">
+            <img src="music_img/2.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font2">
+            <p>《孤雏》<br>AGA</p>
+        </div>
+    </div>
+
+    <div class="music_box"  onclick="checked_music(3)">
+        <div class="music_show">
+            <img src="music_img/3.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font3">
+            <p>《樱花树下》<br>张敬轩</p>
+        </div>
+    </div>
+
+    <div class="music_box"  onclick="checked_music(4)">
+        <div class="music_show">
+            <img src="music_img/4.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font4">
+            <p>《天梯》<br>张智霖</p>
+        </div>
+    </div>
+
+    <div class="music_box"  onclick="checked_music(5)">
+        <div class="music_show">
+            <img src="music_img/5.jpg" style="width: 100%;height: 100%">
+        </div>
+        <div class="music_font" id="font5">
+            <p>《岁月如歌》<br>陈奕迅</p>
+        </div>
+
+    </div><div class="music_box"  onclick="checked_music(6)">
+    <div class="music_show">
+        <img src="music_img/6.jpg" style="width: 100%;height: 100%">
+    </div>
+    <div class="music_font" id="font6">
+        <p>《高山低谷》<br>林奕匡</p>
+    </div>
+</div>
+
+<div class="music_box"  onclick="checked_music(7)">
+    <div class="music_show">
+        <img src="music_img/7.jpg" style="width: 100%;height: 100%">
+    </div>
+    <div class="music_font" id="font7">
+        <p>《葡萄成熟时》<br>杨千嬅&刘惜君</p>
+    </div>
+</div>
+
+</div>
+
+    <div id="box1" class="fixed-bottom">
+
+        <img id="music_img" src="music_img/tx.jpg">
+
+
+
+        <div id="music_font1">
+            点击<br>即可播放~
+        </div>
+
+        <audio controls id="music" style="width: 900px;height: 150px;margin-left: 50px;margin-top: -65px"></audio>
+        
+    </div>
+
+<div id="heijiao">
+        <div id="box2">
+            <div id="fanhui" style="font-size: 35px" onclick="back()"><</div>
+        </div>
+
+       <div id="box3">
+           <div id="yuan">
+               <img id="img1" style="width: 100%;height: 100%;border-radius: 50%">
+               <div class="xiaoyuan"></div>
+           </div>
+       </div>
+
+       <div>
+           <img src="music_img/音壁.png" id="yinbi">
+       </div>
+</div>
+
+</body>
+<script src="music.js"></script>
+
+<script type="text/javascript">
+    if (!localStorage.getItem('isLogin')) {
+        let loginImg = document.createElement('li');
+        loginImg.style.float = 'right';
+        loginImg.id = 'login_img';
+        loginImg.innerHTML = `<a href="../login/login.html"><img src="../anime/anime-img/用户-圆.png" style="width: 25px;height: 25px;border-radius: 8px"></a>`;
+        document.querySelector('ul').appendChild(loginImg);     //未登录时显示的图片
+
+    } else if (localStorage.getItem('isLogin') === 'true') {
+        let yhtx = document.getElementById("login-tx")
+        yhtx.remove();    //移除未登录时的图片
+
+        let user = JSON.parse(localStorage.getItem('user'));
+        let username = user.username;
+        let userImg = document.createElement('li');
+        userImg.style.float = 'right';
+        userImg.innerHTML = '<a href="../login/login.html"><img src="../homeimg/用户头像.jpg" style="width: 25px;height: 25px;border-radius: 20px">'+username;'</a>';
+        document.querySelector('ul').appendChild(userImg);    //登录后显示的用户头像与用户名称
+    }
+</script>
+</html>

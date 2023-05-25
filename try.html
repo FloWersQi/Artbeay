@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-image: url("homeimg/beijing.png");
+        background-size: cover;
+    }
+    .all{
+        align-content: center;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        display: flex;
+        margin-left: 20px;
+    }
+    .copytext{
+        width: 600px;
+        height: 80px;
+        border-radius: 30px;
+        opacity: 0.5;
+        background: white;
+    }
+    button{
+        width: 100px;
+        height: 80px;
+        border-radius: 30px;
+        background-image:linear-gradient(to bottom, #5671d0, #d5d5e7) ;
+    }
+</style>
+<body>
+<div class="all">
+
+<div class="copytext">
+    <h2>artbeay.top</h2>
+
+</div>
+<button onclick="copyToClipboard('artbeay.top')"><h3>复制</h3></button>
+
+
+
+
+</body>
+<script>
+  function copyToClipboard(text) {
+    // 创建一个 textarea 元素，并设置 value 属性为复制的文本
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+
+    // 将 textarea 元素添加到页面中
+    document.body.appendChild(textarea);
+
+    // 选中文本内容
+    textarea.select();
+
+    // 复制文本内容到剪贴板
+    document.execCommand('copy');
+
+    // 移除添加的 textarea 元素
+    document.body.removeChild(textarea);
+  }
+
+</script>
+</html>

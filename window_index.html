@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArtBeay</title>
+  <meta charset="UTF-8">
+  <title>Artbeay</title>
+  <link href="homestyle.css" type="text/css" rel="stylesheet">
+  <link rel="icon" href="./homeimg/logo.jpg" sizes="16x16" type="image/png"> 
+</head>
+<body>
+    <!--导航栏-->
+<div class="nav">
+  <ul>
+    <li><a href="#"><img src="homeimg/logo.jpg" width="55px" height="35px" style="border-radius: 6px"></a></li>
+    <li><a href="Find/Find.html">Find</a></li>
+    <li><a href="movie/电影.html">Moive</a></li>
+    <li><a href="music/music.html">Music</a></li>
+    <li><a href="Calligraphy/Calligraphy.html">Calligraphy</a></li>
+    <li><a href="painting/painting.html">Painting&&Bangumi</a></li>
+    <li><a href="food/美食.html">Food</a></li>
+    <li><a href="anime/anime.html">Anime</a></li>
+    <li><a href="book/书本.html">Book</a></li>
+    <li style="float: right" class="nav1" id="login-tx"></li>
+    <li style="float: right;" class="nav1"><a href="#"><img src="homeimg/应用.png" width="25" height="25"></a>
+      <ul class="nav2">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="try.html">Contact</a></li>
+        <li onclick="sign_out()">Sign out</li>
+      </ul>
+    </li>
+    <li class="switch">
+      <input class="switch-checkbox" id="onoffswitch" type="checkbox">
+      <label class="switch-label" for="onoffswitch">
+        <span class="switch-inner" data-on="Dark" data-off="Light"></span>
+        <span class="switch-switch"></span>
+      </label>
+    </li>
+  </ul>
+</div>
+
+    <script>
+      var navItems = document.querySelectorAll('.nav li:not(.switch):not(.nav1)');
+      var isLogin = localStorage.getItem('isLogin');
+      if (!localStorage.getItem('isLogin')) {
+        navItems.forEach(function(item) {
+          item.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止a跳转
+            alert('请先登录');
+
+          });
+        });
+      }
+    </script>
+
+
+    <div class="main-font">
+  <h1>Life Imitates Arts，Arts Imitates Life</h1>
+</div>
+
+<div id="img-show">
+  <div class="img-show1">
+    <a href="#"><img src="homeimg/影视1.jpg" alt=“影视1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+  <div id="void-img1" class="void-img1">
+    <a href="#"><img src="homeimg/影视2.jpg" alt="影视2" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+
+
+  <div class="img-show2">
+    <a href="#"> <img src="homeimg/音乐1.jpg" alt="音乐1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+  <div id="void-img2" class="void-img2">
+    <a href="#"> <img src="homeimg/音乐2.jpg" alt="音乐2" width="200px" height="300px" style="border-radius: 8px"> </a>
+  </div>
+
+
+  <div class="img-show3">
+    <a href="#"><img src="homeimg/书法1.png" alt="书法1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+
+
+  <div class="img-show4">
+    <a href="#"><img src="homeimg/美术1.jpg" alt="美术1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+
+  <div class="img-show5">
+    <a href="#"><img src="homeimg/美食1.png" alt="美食1" width="220px" height="360px" style="border-radius: 8px"></a>
+  </div>
+
+
+  <div class="img-show6">
+    <a href="#"><img src="homeimg/动漫1.png" alt="动漫1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+  <div id="void-img6" class="void-img6">
+    <a href="#"><img src="homeimg/动漫2.png" alt="动漫2" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+
+  <div class="img-show7">
+    <a href="#"><img src="homeimg/书籍1.png" alt="书籍1" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+  <div id="void-img7" class="void-img7">
+    <a href="#"><img src="homeimg/书籍2.jpg" alt="书籍2" width="200px" height="300px" style="border-radius: 8px"></a>
+  </div>
+</div>
+
+<div class="message">
+  <img src="homeimg/logo.jpg" width="55px" height="35px" style="margin-top: 40px;margin-left: 10px;border-radius: 8px">
+  <p>ArtBeay——Art Creates Beauty.</p>
+</div>
+</body>
+
+<script src="homejs.js"></script>
+
+</body>
+</html>
