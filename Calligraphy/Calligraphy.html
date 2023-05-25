@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calligraphy</title>
+  <link href="Calligraphy.css" type="text/css" rel="stylesheet">
+  <script src="Calligraphy.js"></script>
+    <link rel="icon" href="../homeimg/logo.jpg" sizes="16x16" type="image/png">
+</head>
+<body>
+<div class="nav-n">
+  <ul>
+    <li><a href="../index.html">Index</a></li>
+    <li><a href="../Find/Find.html">Find</a></li>
+    <li><a href="#">Moive</a></li>
+    <li><a href="#">Music</a></li>
+    <li><a href="../Calligraphy/Calligraphy.html">Calligraphy</a></li>
+    <li><a href="../painting/painting.html">Painting&&Bangumi</a></li>
+    <li><a href="#">Food</a></li>
+    <li><a href="../anime/anime.html">Anime</a></li>
+    <li><a href="../book/书本.html">Book</a></li>
+    <li style="float:right;" id="login-tx"></li>
+  </ul>
+</div>
+
+<div class="box" id="box">
+  <div class="item">
+    <img  src="Calligraphy_img/1.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/2.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/3.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/4.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/5.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/6.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/7.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/8.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/9.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/10.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/11.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/12.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/13.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/14.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/15.jpg" alt="" />
+  </div>
+  <div class="item">
+    <img  src="Calligraphy_img/16.jpg" alt="" />
+    <!--    -->
+  </div>
+
+</div>
+<button style="float: bottom;width: 150px;height: 75px;border-radius: 10px;border: none;background: deepskyblue;color: white;font-size:23px;margin-left: 50%" onclick="more_img()">加载更多</button>
+</body>
+
+
+<script type="text/javascript">
+  if (!localStorage.getItem('isLogin')) {
+    let loginImg = document.createElement('li');
+    loginImg.style.float = 'right';
+    loginImg.id = 'login_img';
+    loginImg.innerHTML = `<a href="../login/login.html"><img src="../anime/anime-img/用户-圆.png" style="width: 25px;height: 25px;border-radius: 8px"></a>`;
+    document.querySelector('ul').appendChild(loginImg);     //未登录时显示的图片
+
+  } else if (localStorage.getItem('isLogin') === 'true') {
+    let yhtx = document.getElementById("login-tx")
+    yhtx.remove();    //移除未登录时的图片
+
+    let user = JSON.parse(localStorage.getItem('user'));
+    let username = user.username;
+    let userImg = document.createElement('li');
+    userImg.style.float = 'right';
+    userImg.innerHTML = '<a href="../login/login.html"><img src="../homeimg/用户头像.jpg" style="width: 25px;height: 25px;border-radius: 20px">'+username;'</a>';
+    document.querySelector('ul').appendChild(userImg);    //登录后显示的用户头像与用户名称
+  }
+</script>
+</body>
+</html>
