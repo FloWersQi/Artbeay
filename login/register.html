@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="register_style.css" rel="stylesheet" type="text/css">
+    <script src="login_js.js"></script>
+    <link rel="icon" href="login-img/logo.jpg" sizes="16x16" type="image/png"> 
+</head>
+<body>
+<div id="register">
+    <div id="register-font">
+        <b><h1 style="text-align: center;">Register</h1></b>
+        <p style="font-weight: 100;text-align: center">Hey,frined,You can use the web after you register</p>
+        <form id="register-form">
+            <label>e-mail：</label>
+            <input type="email" id="email" name="email" autocomplete="current-password"><br><br>
+            <label for="password">Password：</label>
+            <input type="password" id="password" name="password" autocomplete="current-password"><br><br>
+            <label for="username">Username：</label>
+            <input type="text" id="username" name="username" autocomplete="off">
+            <input type="submit" value="Register" onclick="register()">
+        </form>
+        <br>
+        Have account? <a href="login.html">Login account</a>
+    </div>
+    <div id="register-img">
+        <img src="login-img/注册.jpg" alt="注册">
+    </div>
+
+</div>
+</body>
+</html>
+

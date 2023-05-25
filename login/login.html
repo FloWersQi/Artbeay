@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="login_style.css" rel="stylesheet" type="text/css">
+    <script src="login_js.js"></script>
+    <link rel="icon" href="login-img/logo.jpg" sizes="16x16" type="image/png"> 
+
+
+</head>
+<body>
+<div id="login">
+    <div id="login-img">
+        <img src="login-img/登录.jpg" alt="登录">
+    </div>
+
+    <div id="login-font">
+
+        <form method="post" id="login_form">
+            <script>
+                checkLoginStatus();
+            </script>
+            <b><h1 style="text-align: center;">Login</h1></b>
+            <p style="font-weight: 100;text-align: center">Hey,frined,You can use the web after you log in</p>    
+            <label for="e-mail">e-mail：</label>
+            <input type="e-mail" id="e-mail" name="e-mail" autocomplete="current-password" placeholder="Please enter the e-mail"><br><br>
+            
+            <label for="password">Password：</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Please enter the password"><br><br>
+            
+            <input type="submit" value="Login" onclick="login()">
+        </form>
+
+        <br>
+        Have no account? <a href="register.html">Register</a> &emsp;&emsp;&emsp;Forget the password?<a href="Recove password.html">Recover</a>
+    </div>
+
+
+</div>
+</body>
+</html>

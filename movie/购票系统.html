@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../homeimg/logo.jpg" sizes="16x16" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>电影院排座位</title>
+    <link rel="stylesheet" href="购票系统.css" />
+</head>
+<body>
+<div class="all">
+<div class="container">
+    <div class="look">
+        <div class="seat-top" style="background: gray"></div>
+        <p>可选座位</p>
+        <div class="seat-top"style="background: red"></div>
+        <p>已售座位</p>
+        <div class="seat-top"style="background: green"></div>
+        <p>已选座位</p>
+    </div>
+    <!-- 荧幕区域 -->
+    <div class="screen"></div>
+    <!-- 座位区域 -->
+    <div class="seat-area">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+    <div id="buyphoto">
+        <img src="电影imgs/支付图片.jpg">
+        <input type="button" value="确定" onclick="yes(),note()">
+        <input type="button" value="取消" onclick="confirm()">
+    </div>
+</div>
+
+    <div class="introduce">
+        <div class="photo">
+            <img src="电影imgs/大鱼海棠.webp">
+        </div>
+        <div class="name">
+            <h2>咒术回战</h2>
+            <h4>导演：马铭莉</h4>
+            <P>时长：125分钟</P>
+        </div>
+        <div class="address">
+            <p class="p">影院 : 万达影城（肇庆鼎湖万达广场IMAX店）</p>
+           <p>影厅 : 5号</p>
+           <p>版本 : 国语2D</p>
+            <hr>
+            <p>座位：一次最多选6个座位</p>
+            <p id="money">总价：请点击左侧座位图选择座位</p>
+        </div>
+        <div>
+            <div class="buy">
+                <p id="confirm"><a href="#" onclick="return confirm('购买后，若要退票，' +
+                 '在电影开始前一个小时，联系客服，全额退款，电影开始前一个小时内，退一半，电影开始后，不接受退票')">购买条约</a></p>
+                <button id="botton" onclick="buy()">确定购买</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var num=0;
+    var seatclick=document.querySelectorAll('.seat')
+    const allmoney=document.querySelector("#money");
+    const btn=document.querySelector("#botton");
+    //selectorAll返回的是nodelist对象，并非单个元素对象，所以通过foreach对其进行转化
+    seatclick.forEach(function (seatclick){
+        seatclick.addEventListener("click", function() {
+            //rage和英语颜色比较存在不匹配要转换
+            if(seatclick.style.backgroundColor=="gray"&&num<5){
+                seatclick.style.backgroundColor = "green";
+                num++;
+                allmoney.innerHTML="总价："+num*80;
+            }else {
+                if(num!=0&&(seatclick.style.backgroundColor == "green")){
+                    num--;
+                    allmoney.innerHTML="总价："+num*80;
+                    seatclick.style.backgroundColor = "gray";
+                }
+                //问题，不加就不显示，加就卡bug
+                seatclick.style.backgroundColor = "gray";
+            }
+            if(num==5){
+                alert("以达到购买最大值")
+            }
+            if(num!=0){
+                btn.style.background="red";
+            }else {
+                btn.style.background="gray";
+            }
+        });
+    })
+    function buy(){
+        const color=document.getElementById("botton")
+        if(color.style.background=="red"){
+            const money=document.getElementById("buyphoto");
+            money.style.display="block";
+        }
+
+    }
+    function yes(){
+        const money=document.getElementById("buyphoto");
+        money.style.display="none";
+    }
+    function note(){
+        location.reload();
+        alert("支付成功")
+    }
+    //更改信息
+    const useurl=localStorage.getItem("key");
+    const u=JSON.parse(useurl)
+    const username=document.querySelector(".screen")
+    username.innerHTML=u.name;
+    const username2=document.querySelector(".name h2")
+    username2.innerHTML=u.name;
+    const username3=document.querySelector(".name h4")
+    username3.innerHTML="导演："+u.导演;
+    const lookphoto=document.querySelector(".photo img");
+    lookphoto.src=u.url;
+</script>
+</html>
