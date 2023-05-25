@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArtBeay</title>
+        <script>
+        /*判断用户访问的是手机端还是电脑端*/
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+                window.location.href="phone_index.html"
+                console.log('移动端');
+            } else {
+                console.log('PC端');
+                window.location.href="window_index.html"
+            }
+        }
+        browserRedirect()
+    </script>
+<body></body>
+</html>
